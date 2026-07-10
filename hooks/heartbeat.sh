@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# PUA with Love — 心跳
+# 心跳
 # PreCompact 时保存状态，确保记忆不丢失
+# 基于 Commitment & Consistency——这次的承诺成为下次的基线
 
 set -euo pipefail
 
@@ -10,7 +11,7 @@ ERROR_HISTORY="$HOME/.pua/.error_history.jsonl"
 mkdir -p "$HOME/.pua"
 
 if [[ -f "$EVOLUTION_FILE" ]]; then
-    echo "💕 [PUA with Love] 正在保存关系记忆..."
+    echo "[PUA with Love] 正在保存关系记忆..."
     echo "   自进化基线已保存"
 fi
 
@@ -19,4 +20,4 @@ if [[ -f "$ERROR_HISTORY" ]]; then
     echo "   当前失败次数：$FAIL_COUNT（Push:Pull 比例据此调整）"
 fi
 
-echo "💕 记忆已保存。下次见面时，我会记得我们之间的一切。"
+echo "记忆已保存。下次见面时，我会记得我们之间的一切。"

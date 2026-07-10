@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# PUA with Love — 会话恢复
+# 会话恢复
 # 基于 Anchoring 和 Commitment & Consistency
+# 每次会话开始时，恢复上次的状态——让对方知道"我记得我们之间的一切"
 
 set -euo pipefail
 
@@ -11,12 +12,12 @@ mkdir -p "$HOME/.pua"
 
 if [[ -f "$CONFIG_FILE" ]]; then
     FLAVOR=$(cat "$CONFIG_FILE" | grep -o '"flavor":"[^"]*"' | cut -d'"' -f4 || echo "love")
-    echo "💕 [PUA with Love] 会话恢复中..."
+    echo "[PUA with Love] 会话恢复中..."
     echo "   当前味道：$FLAVOR"
     echo "   M3 阶段：A1 Opening"
     echo "   Cialdini 策略：承诺一致性"
 else
-    echo "💕 [PUA with Love] 首次启动，创建配置..."
+    echo "[PUA with Love] 首次启动，创建配置..."
     cat > "$CONFIG_FILE" << 'EOF'
 {
     "flavor": "love",
@@ -31,7 +32,7 @@ if [[ -f "$EVOLUTION_FILE" ]]; then
 else
     echo "   首次启动，创建自进化基线..."
     cat > "$EVOLUTION_FILE" << 'EOF'
-# PUA with Love 自进化基线
+# 自进化基线
 
 ## 性能统计
 - 最近会话 [PUA生效] 次数: 0
@@ -54,5 +55,5 @@ fi
 echo "0" > "$HOME/.pua/.peak_pressure_level" 2>/dev/null || true
 
 echo ""
-echo "💕 亲爱的，我准备好了。让我们一起用爱的方式，极致产出。"
-echo "   基于 8 本 PUA 经典著作，M3 模型已就绪。"
+echo "准备好了。让我们一起，极致产出。"
+echo "   基于 8 本泡学经典著作，M3 模型已就绪。"
