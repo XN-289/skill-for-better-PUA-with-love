@@ -1,0 +1,23 @@
+{
+    "hooks": {
+        "SessionStart": [
+            {
+                "type": "command",
+                "command": "bash hooks/session-restore.sh"
+            }
+        ],
+        "PostToolUse": [
+            {
+                "type": "command",
+                "command": "bash hooks/failure-detector.sh",
+                "matcher": "Bash"
+            }
+        ],
+        "PreCompact": [
+            {
+                "type": "command",
+                "command": "bash hooks/heartbeat.sh"
+            }
+        ]
+    }
+}
